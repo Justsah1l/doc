@@ -1,4 +1,5 @@
 import 'package:appointease/components/custombutton.dart';
+import 'package:appointease/pages/appointmetlist.dart';
 import 'package:appointease/services/authservice.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -64,6 +65,17 @@ class _ProfileState extends State<Profile> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            Custombutton(
+                text: "Appointments",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => appointfetch()),
+                  );
+                }),
             SizedBox(
               height: 20,
             ),

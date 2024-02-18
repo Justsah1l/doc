@@ -76,7 +76,7 @@ class _docprofileState extends State<docprofile> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            appointmentpage(docid: widget.docid)),
+                            appointmentpage(docname: widget.name)),
                   );
                 }),
           ],
