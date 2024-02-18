@@ -1,6 +1,11 @@
+import 'package:appointease/services/notificationservice.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
+
+DateTime scheduleTime = DateTime.now();
+NotificationService notificationService = NotificationService();
 
 class appointfetch extends StatefulWidget {
   const appointfetch({super.key});
@@ -12,6 +17,14 @@ class appointfetch extends StatefulWidget {
 final FirebaseAuth auth = FirebaseAuth.instance;
 
 class _appointfetchState extends State<appointfetch> {
+  NotificationService notificationService = NotificationService();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    notificationService.initNotification();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +74,12 @@ class _appointfetchState extends State<appointfetch> {
       return Container(
         padding: EdgeInsets.all(10),
         child: ListTile(
+          trailing: IconButton(
+              icon: Icon(Icons.calendar_month),
+              onPressed: () {
+                notificationService.Schedulenot("Doctors Appointment alert ",
+                    "Your appointment is scheduled on ${data['data']} ");
+              }),
           leading: Icon(Icons.person_3),
           tileColor: Colors.white,
           shape: RoundedRectangleBorder(
