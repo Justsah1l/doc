@@ -25,7 +25,6 @@ class NotificationService {
     NotificationDetails notificationDetails = NotificationDetails(
       android: androidNotificationDetails,
     );
-    await notificationsPlugin.periodicallyShow(
-        0, title, body, RepeatInterval.daily, notificationDetails);
+    await notificationsPlugin.show(0, title, body, notificationDetails);
   }
 }

@@ -81,7 +81,7 @@ class _StartpageState extends State<Startpage> {
                         height: 10,
                       ),
                       Text(
-                        "Find the best Hospitals",
+                        "Find the best Doctors",
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold),
                       )

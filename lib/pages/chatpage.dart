@@ -48,6 +48,9 @@ class _chatpageState extends State<chatpage> {
         if (snapshot.hasError) {
           return Text("Error ${snapshot.error}");
         }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading ..");
+        }
         return ListView(
             children: snapshot.data!.docs
                 .map((document) => messagelistitem(document))

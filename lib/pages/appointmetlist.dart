@@ -78,7 +78,7 @@ class _appointfetchState extends State<appointfetch> {
               icon: Icon(Icons.calendar_month),
               onPressed: () {
                 notificationService.Schedulenot("Doctors Appointment alert ",
-                    "Your appointment is scheduled on ${data['data']} ");
+                    "Your appointment is scheduled on ${data['date']} ");
               }),
           leading: Icon(Icons.person_3),
           tileColor: Colors.white,
