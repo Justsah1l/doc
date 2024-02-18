@@ -14,23 +14,40 @@ class Loginpage extends StatefulWidget {
   State<Loginpage> createState() => _LoginpageState();
 }
 
+List<String> options = ["Paitent", "Doctor"];
+
 class _LoginpageState extends State<Loginpage> {
+  String currop = options[0];
   TextEditingController email = TextEditingController();
 
   TextEditingController pass = TextEditingController();
   void ontap() async {
     final authser = Provider.of<Authservice>(context, listen: false);
-    try {
-      await authser.siem(email.text, pass.text);
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            e.toString(),
+    if (currop == "Paitent") {
+      try {
+        await authser.siem(email.text, pass.text);
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              e.toString(),
+            ),
           ),
-        ),
-      );
-    }
+        );
+      }
+    } else
+      try {
+        await authser.siemdoc(email.text, pass.text);
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              e.toString(),
+            ),
+          ),
+        );
+      }
+    {}
   }
 
   @override
@@ -71,6 +88,45 @@ class _LoginpageState extends State<Loginpage> {
                 hinttext: "Password",
                 obsure: true,
                 controller: pass,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Paitent',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Radio(
+                        value: options[0],
+                        groupValue: currop,
+                        onChanged: (value) {
+                          setState(() {
+                            currop = value.toString();
+                          });
+                        },
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        'Doctor',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Radio(
+                        value: options[1],
+                        groupValue: currop,
+                        onChanged: (value) {
+                          setState(() {
+                            currop = value.toString();
+                          });
+                        },
+                      )
+                    ],
+                  )
+                ],
               ),
               Custombutton(
                 onTap: ontap,
