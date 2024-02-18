@@ -1,3 +1,4 @@
+import 'package:appointease/pages/docprofile.dart';
 import 'package:appointease/pages/profile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -143,7 +144,17 @@ class _StartpageState extends State<Startpage> {
           subtitle: Row(
             children: [Text("Speciality - "), Text(data['desc'] ?? "Unknown")],
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => docprofile(
+                        name: data['email'] ?? "",
+                        desc: data['desc'] ?? "Unknown",
+                        docid: data['uid'] ?? "",
+                      )),
+            );
+          },
         ),
       );
     } else {
