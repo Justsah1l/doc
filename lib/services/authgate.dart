@@ -1,4 +1,3 @@
-import 'package:appointease/pages/homepage.dart';
 import 'package:appointease/pages/startpage.dart';
 import 'package:appointease/services/loginorreg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
