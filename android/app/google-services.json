@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "313517405395",
+    "project_id": "appointease-2a961",
+    "storage_bucket": "appointease-2a961.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313517405395:android:f3ca56180fe7bb0fb3d026",
+        "android_client_info": {
+          "package_name": "com.example.appointease"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEnANgf3umF9-UiLAmVny0tSpbkjXgjIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
