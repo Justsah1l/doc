@@ -1,5 +1,6 @@
 import 'package:appointease/components/custombutton.dart';
 import 'package:appointease/components/customtextfield.dart';
+import 'package:appointease/pages/moneyreq.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +91,16 @@ class _appointmentpageState extends State<appointmentpage> {
                       content: Text("Appointment booked"),
                     ),
                   );
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => reqmon(
+                        docid: widget.docname,
+                      ),
+                    ),
+                  );
+
+                  // Navigator.pop(context);
                 }),
           ],
         ),

@@ -26,7 +26,8 @@ android {
     namespace "com.example.appointease"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
-
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
